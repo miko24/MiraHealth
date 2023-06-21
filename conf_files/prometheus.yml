@@ -1,0 +1,15 @@
+global:
+  scrape_interval: 15s
+
+rule_files:
+  - 'kafka_topic_metrics.rules.yml'
+
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 1s
+    static_configs:
+      - targets: ['localhost:9090']
+  - job_name: 'script'
+    scrape_interval: 1s
+    static_configs:
+      - targets: ['localhost:8080']
