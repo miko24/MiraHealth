@@ -8,9 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'web_app/dashboard/src/Components/Chartt.jsx';
+} from 'web_app/dashboard/src/Components/Chart.jsx';
 import { Line } from 'react-chartjs-2';
-import {faker} from '@faker-js/faker';
 
 ChartJS.register(
   CategoryScale,
