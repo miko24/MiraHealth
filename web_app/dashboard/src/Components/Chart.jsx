@@ -8,7 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'web_app/dashboard/src/Components/Chart.jsx';
+} from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
 ChartJS.register(
