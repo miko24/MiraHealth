@@ -1,19 +1,13 @@
 import {
-    FileOutlined,
-    TeamOutlined,
-    LineChartOutlined,
-    HeartFilled,
-    UserOutlined,
-    EditOutlined,
     SettingOutlined,
     ExpandOutlined
 } from '@ant-design/icons';
-import {Avatar, Breadcrumb, Card, Col, Layout, Menu, Row, theme} from 'antd';
+import { Card, Col, Row, theme} from 'antd';
 import { useState } from 'react';
-import Chart from "./chart";
+import Chart from "./Chart";
 const { Meta } = Card;
 
-export default function UserProfile({user}) {
+export default function PatientView({user}) {
     const [lastBPM,setLastBPM] = useState(0);
     const [lastTemp,setLastTemp] = useState(0);
     const [lastBP,setLastBP] = useState(0);

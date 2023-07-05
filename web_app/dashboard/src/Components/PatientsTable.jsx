@@ -7,9 +7,10 @@ import {
     verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { Table } from 'antd';
+import {Breadcrumb, Table} from 'antd';
 import {useEffect, useState} from 'react';
 import StatsModal from "./StatsModal";
+import {Link} from "react-router-dom";
 
 const columns = [
     {
@@ -76,22 +77,24 @@ const App = () => {
         }
     };
 
-    useEffect(()=>{
-        const fetch_data = async()=>{
+    useEffect(() => {
+        const fetch_data = async () => {
             try {
-                const users = await fetch("http://34.159.120.168:9009/user");
+                const users = await fetch("http://34.159.120.168:9009/patients");
                 const data = await users.json();
-                setDataSource(data && data.map((user,idx)=>({key:idx,first_name:user.first_name,
-                    last_name: user.last_name,email:user.email,mac_address:user.mac_address,
-                    phone_number: user.phone_number,id:user.id})));
-            }catch (e) {
+                setDataSource(data && data.map((user, idx) => ({
+                    key: idx, first_name: user.first_name,
+                    last_name: user.last_name, email: user.email, mac_address: user.mac_address,
+                    phone_number: user.phone_number, id: user.id
+                })));
+            } catch (e) {
                 console.log(e)
             }
 
         }
 
         fetch_data();
-    },[])
+    }, []);
 
     return (
         <>

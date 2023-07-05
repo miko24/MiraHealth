@@ -1,7 +1,7 @@
 import { Button, Modal } from 'antd';
 import { useRef, useState } from 'react';
 import Draggable from 'react-draggable';
-import UserProfile from "./UserProfile";
+import PatientView from "./PatientView";
 
 const App = ({open,setOpen,user}) => {
     const [disabled, setDisabled] = useState(true);
@@ -36,6 +36,11 @@ const App = ({open,setOpen,user}) => {
             bottom: clientHeight - (targetRect.bottom - uiData.y),
         });
     };
+
+    if(!user){
+        return null;
+    }
+
     return (
         <>
             <Modal
@@ -66,7 +71,7 @@ const App = ({open,setOpen,user}) => {
                 }
                 open={open}
                 onOk={handleOk}
-                onCancel={h::andleCancel}
+                onCancel={handleCancel}
                 modalRender={(modal) => (
                     <Draggable
                         disabled={disabled}
@@ -78,7 +83,7 @@ const App = ({open,setOpen,user}) => {
                 )}
             >
 
-                <UserProfile user={user} />
+                <PatientView user={user} />
             </Modal>
         </>
     );

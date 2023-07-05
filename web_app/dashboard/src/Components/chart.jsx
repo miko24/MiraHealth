@@ -40,7 +40,7 @@ export const data = {
 
 };
 
-export default function App({setLastBPM,url,color,range}) {
+export default function Chart({setLastBPM,url,color,range}) {
     const [dataset, setdataset] = useState(data);
     const [prometheus_data, setprometheus_data] = useState([]);
     const [firstrender, setfirstrender] = useState(true);
@@ -104,16 +104,17 @@ export default function App({setLastBPM,url,color,range}) {
             console.error(error);
         }
     }
-    useEffect(()=>{
-            fetch_data();
-    },[])
+    useEffect(() => {
+        setprometheus_data([]);
+        fetch_data();
+    }, [url]);
     const updatedata = ()=>{
-    console.log(prometheus_data)
+    // console.log(prometheus_data)
     let outputdata = [...dataset.datasets[0].data,prometheus_data[0]]
     if(outputdata.length >20){
         outputdata.shift()
     }
-    console.log(outputdata)
+    // console.log(outputdata)
     let temp = {
         labels,
         datasets: [
