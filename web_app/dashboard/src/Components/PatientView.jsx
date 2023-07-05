@@ -4,7 +4,7 @@ import {
 } from '@ant-design/icons';
 import { Card, Col, Row, theme} from 'antd';
 import { useState } from 'react';
-import Chart from "./Chart";
+import Chart from "./Chartt";
 const { Meta } = Card;
 
 export default function PatientView({user}) {

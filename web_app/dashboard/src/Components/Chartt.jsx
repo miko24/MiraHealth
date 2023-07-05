@@ -8,7 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from 'web_app/dashboard/src/Components/Chartt.jsx';
 import { Line } from 'react-chartjs-2';
 import {faker} from '@faker-js/faker';
 
